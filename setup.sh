@@ -17,6 +17,7 @@ sudo chmod 775 /etc/systemd/system/reporter_service_ko.service
 sudo systemctl daemon-reload
 sudo systemctl enable reporter_service_ko.service
 elif [ "$1" == "english" ] || [ "$1" == "" ];
+then
 sudo mv reporter_service.service /etc/systemd/system/reporter_service_en.service
 sudo chmod 775 /etc/systemd/system/reporter_service_en.service
 sudo systemctl daemon-reload
