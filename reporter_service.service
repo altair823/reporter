@@ -1,0 +1,13 @@
+[Unit]
+Description= reporter service
+After= multi-user.target
+
+[Service]
+Type=idle
+WorkingDirectory= /home/pi/reporter
+ExecStart=python /home/pi/reporter/reporter.py
+StandardOutput= /home/pi//reporter/reporter.log
+StandardError= /home/pi/reporter/reporter_error.log
+
+[Install]
+WantedBy= multi-user.target
