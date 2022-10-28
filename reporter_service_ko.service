@@ -5,7 +5,7 @@ After= multi-user.target
 [Service]
 Type=idle
 WorkingDirectory= /home/pi/reporter
-ExecStart=python /home/pi/reporter/reporter.py
+ExecStart=python /home/pi/reporter/reporter.py korean
 StandardOutput= /home/pi//reporter/reporter.log
 StandardError= /home/pi/reporter/reporter_error.log
 

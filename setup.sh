@@ -1,4 +1,8 @@
 #!/usr/bin/bash
+echo "hellop"
+else
+echo "wrghuorn"
+fi
 
 if cat /proc/cpuinfo | grep "Model" | head -1  | grep -q "Model		: Raspberry Pi 4";
 then
@@ -9,10 +13,20 @@ sudo apt install i2c-tools -y
 sudo pip3 install pillow
 sudo pip3 install adafruit-circuitpython-ssd1306
 sudo pip3 install Adafruit-Blinka
-sudo mv reporter_service.service /etc/systemd/system/reporter_service.service
-sudo chmod 775 /etc/systemd/system/reporter_service.service
+
+if [ "$1" == "korean" ];
+then
+sudo mv reporter_service.service /etc/systemd/system/reporter_service_ko.service
+sudo chmod 775 /etc/systemd/system/reporter_service_ko.service
 sudo systemctl daemon-reload
-sudo systemctl enable reporter_service.service
+sudo systemctl enable reporter_service_ko.service
+elif [ "$1" == "english" ] || [ "$1" == "" ];
+sudo mv reporter_service.service /etc/systemd/system/reporter_service_en.service
+sudo chmod 775 /etc/systemd/system/reporter_service_en.service
+sudo systemctl daemon-reload
+sudo systemctl enable reporter_service_en.service
+fi
+
 sudo reboot
 else
 echo "This shell script only supports Raspberry Pi 4."

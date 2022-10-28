@@ -1,7 +1,9 @@
 
 import os
+from sys import argv
 import time
 from datetime import datetime
+from configparser import ConfigParser
 
 import board
 import busio
@@ -71,16 +73,35 @@ disp = adafruit_ssd1306.SSD1306_I2C(128, 64, i2c, addr=0x3c)
 disp.fill(0)
 disp.show()
 
+config = ConfigParser()
+cpu_temp = ""
+cpu_load = ""
+ram_usage = ""
+uptime = ""
+language = ""
+if len(argv) < 1:
+    language = "english"
+else:
+    language = argv[1].lower()
+if language == "korean" or language == "ko":
+    language = "korean"
+elif language == "english" or language == "en":
+    language = "english"
+
+cpu_temp = config[language]["cpu_temp"]
+cpu_load = config[language]["cpu_load"]
+ram_usage = config[language]["ram_usage"]
+uptime = config[language]["uptime"]
 
 while(True):
     image = Image.new('1', (128, 64))
     font = ImageFont.truetype('NanumBarunGothicBold.ttf', size=12)
     draw = ImageDraw.Draw(image)
 
-    text = 'CPU 온도: ' + get_cpu_temp() + '\'C\n' + \
-        'CPU 사용량: ' + get_cpu_load_top() + '%\n' + \
-        '메모리 사용량: ' + get_ram_usage() + '%\n' + \
-        '가동 시간: ' + get_total_time()
+    text = cpu_temp + ': ' + get_cpu_temp() + '\'C\n' + \
+        cpu_load + ': ' + get_cpu_load_top() + '%\n' + \
+        ram_usage + ': ' + get_ram_usage() + '%\n' + \
+        uptime + ': ' + get_total_time()
     draw.text(
         (4, 2),
         text,
