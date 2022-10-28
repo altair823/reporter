@@ -12,13 +12,15 @@ sudo pip3 install Adafruit-Blinka
 
 if [ "$1" == "korean" ];
 then
-sudo mv reporter_service.service /etc/systemd/system/reporter_service_ko.service
+echo "setup korean version"
+sudo mv reporter_service_ko.service /etc/systemd/system/reporter_service_ko.service
 sudo chmod 775 /etc/systemd/system/reporter_service_ko.service
 sudo systemctl daemon-reload
 sudo systemctl enable reporter_service_ko.service
 elif [ "$1" == "english" ] || [ "$1" == "" ];
 then
-sudo mv reporter_service.service /etc/systemd/system/reporter_service_en.service
+echo "setup english version"
+sudo mv reporter_service_en.service /etc/systemd/system/reporter_service_en.service
 sudo chmod 775 /etc/systemd/system/reporter_service_en.service
 sudo systemctl daemon-reload
 sudo systemctl enable reporter_service_en.service
