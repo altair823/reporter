@@ -5,7 +5,6 @@ from datetime import datetime
 
 import board
 import busio
-import Adafruit_GPIO.SPI as SPI
 import adafruit_ssd1306
 
 #import psutil
