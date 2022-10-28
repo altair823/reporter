@@ -78,7 +78,7 @@ while(True):
     draw = ImageDraw.Draw(image)
 
     text = 'CPU 온도: ' + get_cpu_temp() + '\'C\n' + \
-        'CPU 로드: ' + get_cpu_load_top() + '%\n' + \
+        'CPU 사용량: ' + get_cpu_load_top() + '%\n' + \
         '메모리 사용량: ' + get_ram_usage() + '%\n' + \
         '가동 시간: ' + get_total_time()
     draw.text(

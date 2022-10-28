@@ -13,6 +13,7 @@ sudo mv reporter_service.service /etc/systemd/system/reporter_service.service
 sudo chmod 775 /etc/systemd/system/reporter_service.service
 sudo systemctl daemon-reload
 sudo systemctl enable reporter_service.service
+sudo reboot
 else
 echo "This shell script only supports Raspberry Pi 4."
 fi
