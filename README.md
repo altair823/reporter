@@ -27,8 +27,11 @@ You can edit the install scripts for other devices, but I have only tested the R
 #### Connecting Pins
 
 VCC -> GPIO 1
+
 SDL -> GPIO 3
+
 SCL -> GPIO 5
+
 GND -> GPIO 9
 
 If you have connected other pins, you must edit I2C address in `reporter.py`. 
