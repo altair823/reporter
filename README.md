@@ -11,8 +11,8 @@ A script for printing performance status(e.g. CPU load, RAM usage, etc.) of Rasp
 
 ## Language Support
 
-- Korean (o)
-- English (not yet)
+- Korean
+- English
 
 ## Device Support
 
