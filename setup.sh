@@ -1,8 +1,4 @@
 #!/usr/bin/bash
-echo "hellop"
-else
-echo "wrghuorn"
-fi
 
 if cat /proc/cpuinfo | grep "Model" | head -1  | grep -q "Model		: Raspberry Pi 4";
 then
