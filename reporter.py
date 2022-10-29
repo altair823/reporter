@@ -36,7 +36,7 @@ def get_ram_usage():
     # return "{:0.2f}".format(used_m / tot_m)
     p = Process()
     rss = p.memory_info().rss / 2 ** 20 # Bytes to MB
-    return "{:10.5f}".format(rss)
+    return "{:0.1f}".format(rss)
 
 
 def get_total_time():
