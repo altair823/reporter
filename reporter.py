@@ -79,6 +79,7 @@ disp.fill(0)
 disp.show()
 
 config = ConfigParser()
+config.read('languages.conf')
 cpu_temp = ""
 cpu_load = ""
 ram_usage = ""
