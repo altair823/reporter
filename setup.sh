@@ -7,7 +7,7 @@ sudo apt install pip -y
 sudo apt install libopenjp2-7 -y
 sudo apt install i2c-tools -y
 sudo pip3 install pillow
-sudo pip3 install psutill
+sudo pip3 install psutil
 sudo pip3 install adafruit-circuitpython-ssd1306
 sudo pip3 install Adafruit-Blinka
 
