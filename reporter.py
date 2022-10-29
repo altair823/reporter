@@ -5,6 +5,8 @@ import time
 from datetime import datetime
 from configparser import ConfigParser
 
+from psutil import Process
+
 import board
 import busio
 import adafruit_ssd1306
@@ -30,8 +32,11 @@ def get_cpu_load_mpstat():
 
 def get_ram_usage():
     #return(str(round(psutil.Process(os.getpid()).memory_info()[0] /2.**30, 2)))
-    (tot_m, used_m, free_m) = map(int, os.popen('free -t -m').readlines()[-1].split()[1:])
-    return "{:0.2f}".format(used_m / tot_m)
+    # (tot_m, used_m, free_m) = map(int, os.popen('free -t -m').readlines()[-1].split()[1:])
+    # return "{:0.2f}".format(used_m / tot_m)
+    p = psutil.Process()
+    rss = p.memory_info().rss / 2 ** 20 # Bytes to MB
+    return "{rss: 10.5f}"
 
 
 def get_total_time():
